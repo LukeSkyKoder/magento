@@ -2,7 +2,8 @@ jpsType: update
 name: Magento Data Migration
 id: magento-data-migration
 logo: https://raw.githubusercontent.com/jelastic-jps/magento/master/addons/migration/images/magento-migration.png
-homepage: https://github.com/jelastic-jps/magento/tree/master/addons/migration
+homepage: https://github.com/LukeSkyKoder/magento/tree/master/addons/migration
+
 description:
   text: 'This add-on allows to migrate data from a standalone Magento installation
     to the <a href="https://github.com/jelastic-jps/magento/tree/master/magento19-php7-varnish-mysql-redis-storage"
@@ -12,7 +13,7 @@ description:
     dump and <i>Content</i> archives by providing the appropriate URLs. '
   short: Migrate data from a standalone Magento installation to the Auto-Scalable
     Magento Cluster by Jelastic.
-baseUrl: https://raw.githubusercontent.com/jelastic-jps/magento/master
+baseUrl: https://raw.githubusercontent.com/LukeSkyKoder/magento/master
 success: Your Magento data was successfully migrated to Jelastic. Check the import
   details within the <b>migration.log</b> file on the Admin Node.
 settings:
@@ -50,5 +51,5 @@ onInstall:
   - cmd[${nodes.cp.master.id}]: |-
       rm -rf /tmp/magento-data; mkdir /tmp/magento-data; wget -qO- '${settings.magento-data}'| tar xz -C /tmp/magento-data
       rm -rf /tmp/magento-database; mkdir /tmp/magento-database; wget -qO- '${settings.magento-database}'| tar xz -C /tmp/magento-database
-      wget ${baseUrl}/addons/migration/migrationMG2.sh -O /tmp/migrationMG2.sh
+      wget ${baseUrl}/addons/migration/migrationMG.sh -O /tmp/migrationMG.sh
       bash /tmp/migrationMG2.sh &>> /var/log/run.log
