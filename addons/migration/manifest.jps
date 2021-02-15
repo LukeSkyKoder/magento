@@ -52,4 +52,4 @@ onInstall:
       rm -rf /tmp/magento-data; mkdir /tmp/magento-data; wget -qO- '${settings.magento-data}'| tar xz -C /tmp/magento-data
       rm -rf /tmp/magento-database; mkdir /tmp/magento-database; wget -qO- '${settings.magento-database}'| tar xz -C /tmp/magento-database
       wget ${baseUrl}/addons/migration/migrationMG.sh -O /tmp/migrationMG.sh
-      bash /tmp/migrationMG2.sh &>> /var/log/run.log
+      bash /tmp/migrationMG.sh &>> /var/log/run.log
